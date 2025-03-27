@@ -7,7 +7,9 @@ contract Deploy is Script {
     function run() public {
         vm.startBroadcast();
         TestToken token = new TestToken();
-        PoolManager poolManager = new PoolManager(500000);
+        // uint256 tickSpacing = 500000;
+        address tickSpacing = address(this);
+        PoolManager poolManager = new PoolManager(tickSpacing);
         vm.stopBroadcast();
         console.log("TestToken at:", address(token));
         console.log("PoolManager at:", address(poolManager));
