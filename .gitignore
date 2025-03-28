@@ -1,5 +1,6 @@
 # if you add a file here, add it to `.npmignore` too
 artifacts/
+broadcast/
 cache/
 crytic-export/
 node_modules/
