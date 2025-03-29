@@ -35,3 +35,12 @@ anvil 启动网络后， 将 50000 修改成 address(this) 正常通过编译。
 第二个就是尽力把 unisap interface 的跑起来。这样，就能够使用 ui 来 operate 本地测试网络。  
 有了前面两个步骤， 就可以考虑看看怎么玩 v4 的 hook 了；  
 
+
+## 20250328
+
+uniswap-interface 使用 yarn install 看起来是可以的。  
+> npm install -g yarn
+> yarn install
+
+接下来， 我要找到 yarn 的 proxy ， 因为网络又出问题了... fuck...  
+另外， sol 的脚本我还是没有能够很理解，需要花一点时间单独理解一下。  
