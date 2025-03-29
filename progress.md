@@ -44,3 +44,12 @@ uniswap-interface 使用 yarn install 看起来是可以的。
 
 接下来， 我要找到 yarn 的 proxy ， 因为网络又出问题了... fuck...  
 另外， sol 的脚本我还是没有能够很理解，需要花一点时间单独理解一下。  
+
+
+
+## 20250329
+
+
+1. 今天找到了一个叫做 blockcount 项目用于 visualize 本地测试网络, 使用 docker compose up 目前看起来是启动起来了，使用 docker ps 查看了， blockcount 项目本身（后端）一直在重启。所以也无法访问。下一个调研可以从这里开始。stop 掉了，明天再看。
+2. uniswap interface 使用 yarn web start 来启动， 但是显然，连接到错误的网络， 提示 key 不存在。应该需要配置一下。
+3. 接上面的问题，在 .env.defaults 里面添加了 REACT\_APP\_NETWORK\_URLS:{} / REACT\_APP\_CHAIN\_IDS 都无法工作。应该还需要更细节的调研
