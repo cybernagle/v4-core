@@ -53,3 +53,20 @@ uniswap-interface 使用 yarn install 看起来是可以的。
 1. 今天找到了一个叫做 blockcount 项目用于 visualize 本地测试网络, 使用 docker compose up 目前看起来是启动起来了，使用 docker ps 查看了， blockcount 项目本身（后端）一直在重启。所以也无法访问。下一个调研可以从这里开始。stop 掉了，明天再看。
 2. uniswap interface 使用 yarn web start 来启动， 但是显然，连接到错误的网络， 提示 key 不存在。应该需要配置一下。
 3. 接上面的问题，在 .env.defaults 里面添加了 REACT\_APP\_NETWORK\_URLS:{} / REACT\_APP\_CHAIN\_IDS 都无法工作。应该还需要更细节的调研
+
+
+## 20250331
+
+1. 紧接着 20250329-01 问题。gpt 提示说是 file notfound 问题。
+> blockcount 启动的时候 anvil 模式的时候， backend 有如下报错： (Code.LoadError) could not load /app/apps/explorer/config/prod/anvil.exs. Reason: enoent
+enoent 代表的意思是 file notfound。
+目前没有线索，会需要一点时间来测试了。
+
+#### uniswap interface 启动
+
+interface 启动成功了。 [原因](https://github.com/Uniswap/interface/issues/7678?ref=sanghun.xyz)是 .env.defaults 里面没有对应的变量。启动成功后就解决了。 
+现在的问题就是
+1. 某个 ts 文件当中导入 ui 失败了。
+2. 连接的网络是 offical 的网络， 数据都是实时的。并没有连接到我的测试网络中。
+
+
