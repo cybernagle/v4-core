@@ -98,8 +98,18 @@ interface 启动成功了。 [原因](https://github.com/Uniswap/interface/issue
     backend           | 
     backend           | Runtime terminating during boot ({#{message=><<"could not load /app/apps/explorer/config/prod/anvil.exs. Reason: enoent">>,reason=>enoent,file=><<"/app/apps/explorer/config/prod/anvil.exs">>,'__struct__'=>'Elixir.Code.LoadError','__exception__'=>true},[{'Elixir.Code','find_file!',2,[{file,"lib/code.ex"},{line,2158}]},{'Elixir.Code',require_file,2,[{file,"lib/code.ex"},{line,1483}]},{elixir_compiler_1,'__FILE__',1,[{file,"config/runtime/prod.exs"},{line,112}]},{elixir_compiler,dispatch,4,[{file,"src/elixir_compiler.erl"},{line,77}]},{elixir_compiler,compile,4,[{file,"src/elixir_compiler.erl"},{line,52}]},{elixir_compiler,maybe_fast_compile,2,[{file,"src/elixir_compiler.erl"},{line,39}]},{elixir_lexical,run,3,[{file,"src/elixir_lexical.erl"},{line,15}]}]})
 
-
 目前就收集到如上报错， 下次再看。
 
+## 20250401 21:30 - 21:51
+
+
+
+我怀疑上面的问题都是因为网络导致的，所以我的解决思路就是，修改 compose 的 host。  
+另外， 我准备安装一个 kind 在本地用于 kubernetes 环境的测试。  
+这样我用起来会比较熟悉。  
+
+kind 目前还在启动。只能等等了；
+
+没有什么进度；
 
 
