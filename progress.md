@@ -70,3 +70,36 @@ interface 启动成功了。 [原因](https://github.com/Uniswap/interface/issue
 2. 连接的网络是 offical 的网络， 数据都是实时的。并没有连接到我的测试网络中。
 
 
+
+## 20250401 08:50 - 09:00
+
+现在有两个问题：
+1. blockcount 启动问题
+2. uniswap interface 并没有接入本地网络。
+
+#### 启动问题
+报错如下：
+- db                | chmod: changing permissions of '/var/run/postgresql': Operation not permitted
+- stats             | 2025-04-01T00:52:28.617111Z ERROR update_charts{update_group="AverageBlockTimeGroup" update_time="2025-04-01 00:52:28.609093634 UTC"}: stats::data_source::kinds::local_db: error during updating chart: blockscout database error: Query Error: error returned from database: relation "blocks" does not exist chart=
+- stats             | 2025-04-01T00:52:28.617863Z ERROR stats_server::update_service: error during updating group: blockscout database error: Query Error: error returned from database: relation "blocks" does not exist update_group="AverageBlockTimeGroup"
+- stats             | 2025-04-01T00:52:28.631225Z ERROR update_charts{update_group="PendingTxns30mGroup" update_time="2025-04-01 00:52:28.628754995 UTC"}: stats::data_source::kinds::local_db: error during updating chart: blockscout database error: Query Error: error returned from database: relation "blocks" does not exist chart=
+- stats             | 2025-04-01T00:52:28.631326Z ERROR stats_server::update_service: error during updating group: blockscout database error: Query Error: error returned from database: relation "blocks" does not exist update_group=
+- stats             | 2025-04-01T00:52:28.633020Z ERROR stats_server::update_service: error during updating group: blockscout database error: Query Error: error returned from database: relation "blocks" does not exist update_group="TotalAddressesGroup"
+- stats             | 2025-04-01T00:52:28.634046Z ERROR update_charts{update_group="NewTxnsWindowGroup" update_time="2025-04-01 00:52:28.626939477 UTC"}: stats::data_source::kinds::local_db: error during updating chart: blockscout database error: Query Error: error returned from database: relation "blocks" does not exist chart=newTxnsWindow_DAY
+>   backend           | ERROR! Config provider Config.Reader failed with:
+    backend           | ** (Code.LoadError) could not load /app/apps/explorer/config/prod/anvil.exs. Reason: enoent
+    backend           |     (elixir 1.17.3) lib/code.ex:2158: Code.find_file!/2
+    backend           |     (elixir 1.17.3) lib/code.ex:1483: Code.require_file/2
+    backend           |     config/runtime/prod.exs:112: (file)
+    backend           |     (elixir 1.17.3) src/elixir_compiler.erl:77: :elixir_compiler.dispatch/4
+    backend           |     (elixir 1.17.3) src/elixir_compiler.erl:52: :elixir_compiler.compile/4
+    backend           |     (elixir 1.17.3) src/elixir_compiler.erl:39: :elixir_compiler.maybe_fast_compile/2
+    backend           |     (elixir 1.17.3) src/elixir_lexical.erl:15: :elixir_lexical.run/3
+    backend           | 
+    backend           | Runtime terminating during boot ({#{message=><<"could not load /app/apps/explorer/config/prod/anvil.exs. Reason: enoent">>,reason=>enoent,file=><<"/app/apps/explorer/config/prod/anvil.exs">>,'__struct__'=>'Elixir.Code.LoadError','__exception__'=>true},[{'Elixir.Code','find_file!',2,[{file,"lib/code.ex"},{line,2158}]},{'Elixir.Code',require_file,2,[{file,"lib/code.ex"},{line,1483}]},{elixir_compiler_1,'__FILE__',1,[{file,"config/runtime/prod.exs"},{line,112}]},{elixir_compiler,dispatch,4,[{file,"src/elixir_compiler.erl"},{line,77}]},{elixir_compiler,compile,4,[{file,"src/elixir_compiler.erl"},{line,52}]},{elixir_compiler,maybe_fast_compile,2,[{file,"src/elixir_compiler.erl"},{line,39}]},{elixir_lexical,run,3,[{file,"src/elixir_lexical.erl"},{line,15}]}]})
+
+
+目前就收集到如上报错， 下次再看。
+
+
+
