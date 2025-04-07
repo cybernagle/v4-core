@@ -113,3 +113,15 @@ kind 目前还在启动。只能等等了；
 没有什么进度；
 
 
+## 20250407 20:41 - 20:48
+
+准备全部迁移 k8s 环境。
+
+1. kubectl
+2. avnil env
+3. uniswap-interface
+4. blockcounts
+
+
+安装了 kubectl + checksum 
+女儿找我， 先去陪她了。
