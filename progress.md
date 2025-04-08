@@ -141,3 +141,13 @@ kind get cluster 可以工作， 但是 kubectl get 就不可以了
 下面的思路是 kubctl 的 config 为和会导致 tls 握手失败。  
 
 
+
+## 20250409 
+
+安装了 fzf， 有一个 key binding 竟然存储在了 /usr/share/docs 里面了。神奇；  
+
+kubectl 的问题，证书都已经校验过了，没有过期，怀疑是 docker 和 node 的日期不一致引起的。  
+接下来修改一下 timezone ， 然后重启试试看；
+
+
+openssl s_client connect 也不工作。 没有什么思路 ...  
