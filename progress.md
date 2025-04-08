@@ -123,5 +123,21 @@ kind 目前还在启动。只能等等了；
 4. blockcounts
 
 
-安装了 kubectl + checksum 
+安装了 kubectl + checksum成功了，下一步在上面安装blockcounts  
 女儿找我， 先去陪她了。
+
+
+## 20250408 09:00 - 09:10
+
+
+kind get cluster 可以工作， 但是 kubectl get 就不可以了  
+又引入了新的问题...  
+
+进度：  
+进入 docker 后， 校验了  
+`kubeadm certs check-expirations`  
+但是证书都没有过期  
+
+下面的思路是 kubctl 的 config 为和会导致 tls 握手失败。  
+
+
