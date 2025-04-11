@@ -145,9 +145,30 @@ kind get cluster 可以工作， 但是 kubectl get 就不可以了
 ## 20250409 
 
 安装了 fzf， 有一个 key binding 竟然存储在了 /usr/share/docs 里面了。神奇；  
+在 `.zshrc` 文件当中添加了 `source /key-binding-path/key-binding`, 问题被解决了；  
 
 kubectl 的问题，证书都已经校验过了，没有过期，怀疑是 docker 和 node 的日期不一致引起的。  
 接下来修改一下 timezone ， 然后重启试试看；
 
 
 openssl s_client connect 也不工作。 没有什么思路 ...  
+
+
+## 20250411 08:45 - 09:00
+
+```shell
+nc -zv localhost port_number
+```
+结果正常， 所以端口是通的；
+
+
+```shell
+openssl s_client -connect 127.0.0.1:41637
+```
+一直卡着，不知道原因。
+
+剩下的选项：  
+1. 检查证书 match 问题。（讲道理不会的， 因为 kubeconfig 就是 kind 提供的）
+2. 抓包看细节。
+
+deepseek 提供了几个意见， 下一次 follow 一下；  
