@@ -172,3 +172,22 @@ openssl s_client -connect 127.0.0.1:41637
 2. 抓包看细节。
 
 deepseek 提供了几个意见， 下一次 follow 一下；  
+
+
+## 20250417 0849 - 09114
+
+尝试了 deepseek 的解决方案，无法工作。  
+
+考虑下载 wireshark 抓包看看效果。  
+
+抓到包了 `sudo tcpdump -i any -w output.pcap port 33701`
+
+1. 目前 tls 连接的建立在 client hello 后就被关闭了；  
+2. openssl 硬编码协议为 tls1_1 ， 连接貌似成功了。 下次检查一下。
+
+
+
+
+
+
+
