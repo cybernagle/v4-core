@@ -185,9 +185,13 @@ deepseek 提供了几个意见， 下一次 follow 一下；
 1. 目前 tls 连接的建立在 client hello 后就被关闭了；  
 2. openssl 硬编码协议为 tls1_1 ， 连接貌似成功了。 下次检查一下。
 
+## 20250418 0849 - 09114
 
+还在 debug tls 建立连接的问题。  
 
+补充一下， 不是添加了版本就工作了，而是 sudo + tls1\_1 才工作的。  
+sudo openssl s\_client tls1\_1 并不是因为可以工作， 而是前面  
+> 4097F0FBA6770000:error:0A0000BF:SSL routines:tls_setup_handshake:no protocols available:../ssl/statem/statem_lib.c:104:
 
-
-
-
+没有 protocol 从而导致后面可以执行。  
+所以，现在可以推测是前面在对应的 ssl 版本执行的时候，卡住了。  
