@@ -204,3 +204,9 @@ nmap 来看看加密套件；
 
 没有什么进展，太依赖 llm 了， 刚刚去 github 上面发现不少的 issue 关于类似的问题。  
 
+
+https://github.com/kubernetes-sigs/kind/issues/2542
+
+https://github.com/kubernetes-sigs/kind/issues/2879
+
+https://github.com/kubernetes-sigs/kind/issues/3403
