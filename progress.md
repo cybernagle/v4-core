@@ -210,3 +210,22 @@ https://github.com/kubernetes-sigs/kind/issues/2542
 https://github.com/kubernetes-sigs/kind/issues/2879
 
 https://github.com/kubernetes-sigs/kind/issues/3403
+
+
+
+## 20250421 21:00 - 22:31
+
+花了点时间研究了一下， 发现 openssl 在内部使用 s\_client 去连接到 127.0.0.1 的时候， 连接建立是成功的。  
+而在外部使用 s\_client 连接的时候， 就不行。  
+所以，问题就出在了 docker 的 network 上。看了 docker 的 svc 并没有报出很多错误。  
+
+
+## 20250422 0859 - 0915
+
+microk8s work 了， 抛弃掉  docker 就好了；  
+
+接下来面临的仍然是网络的问题： 有些 docker image pull 不下来。 需要修改 proxy  
+
+snap 下面有一个路径， 是 microk8s reg 的配置路径。 已经将 docker reg 放进去了。  
+等等看， 如果回来还不行， 就直接修改 deployment；  
+
